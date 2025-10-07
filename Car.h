@@ -4,47 +4,51 @@
 
 using namespace std;
 
-class Car{
 
-	Engine engineObject;
-	Tire tireObjects;
-	Door driverDoor;
-	Door passangerDoor;
-
-	void beginDrive();
-
-};
-
-
-class Engine : public Car {
-
+class Engine {
+public:
 	double engineVolume;
 
 	void startEngine();
 	void accelerate();
+	
+	void setEngineVolume(double e);
+
+	double getEngineVolume();
 
 };
 
 
-class Tire : public Car {
-	
+class Tire {
+public:
 	string tireSize;
 
 	void inflateTire(int i);
 };
 
+class Window {
+public:
+	void rollDown();
 
-class Door : public Car {
+};
 
+class Door {
+public:
 	Window windowObject;
 
 	void openDoor();
 
 };
 
+class Car {
+public:
+	Engine engineObject;
+	Tire tireObjects[4];
+	Door driverDoor;
+	Door passengerDoor;
 
-class Window : public Door {
+	void beginDrive();
 
-	void rollDown();
-
+	Car();
+	Car(double dv, string ts);
 };
